@@ -4,6 +4,7 @@ import cors from "cors";
 
 import healthRoutes from "./routes/health.routes.js";
 import medicineRoutes from "./routes/medicine.routes.js";
+import batchRoutes from "./routes/batch.routes.js";
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/medicines", medicineRoutes);
+
+app.use("/api/v1/batches", batchRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
